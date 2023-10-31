@@ -75,6 +75,11 @@ public class PdfConvert {
                         Log.e("PDF", "Unable to delete temporary file");
                     }
                     result.onError(e.getMessage());
+                } catch(Exception e) {
+                    if (!outputFile.delete()) {
+                        Log.e("PDF", "Unable to delete temporary file");
+                    }
+                    result.onError(e.getMessage());
                 }
             }
         }, null);
